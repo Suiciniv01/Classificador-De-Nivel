@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <form id="mainForm">
+        <label for="name_hero">Nome do Herói: </label>
+        <input type="text" id="nameHero" name="name_hero">
+        <label for="experience">Quantidade de XP</label>
+        <input type="number" id="experience" name="experience">
+        <button type="submit"> Verificar nível </button>
+    </form>
+
+    <p id="nivel"></p>
+
+    <script>
+        const main_form = document.getElementById("mainForm")
+
+        main_form.addEventListener('submit', evento => {
+            evento.preventDefault();
+
+            let nameHero = document.getElementById("nameHero").value;
+            let experience = document.getElementById("experience").value;
+            let nivel = "";
+
+            if(experience < 1000){
+                nivel = "Ferro";
+            }else if(experience < 2000){
+                nivel = "Bronze";
+            } else if(experience < 5000){
+                nivel = "Prata";
+            } else if(experience < 7000){
+                nivel = "Ouro";
+            } else if(experience < 8000){
+                nivel = "Platina";
+            } else if(experience < 9000){
+                nivel = "Ascendente";
+            } else if(experience < 10000){
+                nivel = "Imortal";
+            } else if(experience >= 10001){
+                nivel = "Radiante";
+            }
+
+            document.getElementById("nivel").innerHTML = ("O Herói de nome " + nameHero + " está no nivel " + nivel + ".");
+
+        })
+    </script>
+
+</body>
+</html>
